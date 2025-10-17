@@ -14,20 +14,26 @@ interface SidebarProps {
   onToggle?: () => void
 }
 
-const superAdminNavigation = [
+interface NavigationItem {
+  name: string
+  href: string
+  icon: React.ComponentType<{ className?: string }>
+}
+
+const superAdminNavigation: NavigationItem[] = [
   { name: "Super Admin Dashboard", href: "/super-admin-dashboard", icon: Home },
   { name: "Team", href: "/team", icon: Users },
   { name: "Settings", href: "/settings", icon: Settings },
 ]
 
-const adminNavigation = [
+const adminNavigation: NavigationItem[] = [
   { name: "Admin Dashboard", href: "/admin-dashboard", icon: Home },
   { name: "Team", href: "/team", icon: Users },
   { name: "Data Upload", href: "/upload", icon: Upload },
   { name: "Settings", href: "/settings", icon: Settings },
 ]
 
-const managerNavigation = [
+const managerNavigation: NavigationItem[] = [
   { name: "Manager Dashboard", href: "/manager-dashboard", icon: Home },
   { name: "Settings", href: "/settings", icon: Settings },
 ]
@@ -41,7 +47,7 @@ export function Sidebar({ isOpen, onClose, isCollapsed = false, onToggle }: Side
     setUserRole(role)
   }, [])
 
-  let currentNavigation = []
+  let currentNavigation: NavigationItem[] = []
   if (userRole === "super-admin") {
     currentNavigation = superAdminNavigation
   } else if (userRole === "admin") {

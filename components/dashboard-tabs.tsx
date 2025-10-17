@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { BarChart3, FileText, TrendingUp } from "lucide-react"
 
 interface DashboardTabsProps {
@@ -57,7 +56,6 @@ export function DashboardTabs({ activeTab, onTabChange }: DashboardTabsProps) {
               />
               <span className="flex items-center gap-2">
                 {tab.name}
-                {tab.badge && <Badge className="bg-accent text-accent-foreground text-xs">{tab.badge}</Badge>}
               </span>
             </Button>
           )
